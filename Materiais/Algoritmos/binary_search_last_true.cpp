@@ -1,11 +1,11 @@
-int first_true(int lo, int hi, function<bool(int)> f) {
-	hi++;
+int last_true(int lo, int hi, function<bool(int)> f) {
+	lo--;
 	while (lo < hi) {
-		int mid = lo + (hi - lo) / 2;
+		int mid = lo + (hi - lo + 1) / 2;
 		if (f(mid)) {
-			hi = mid;
+			lo = mid;
 		} else {
-			lo = mid + 1;
+			hi = mid - 1;
 		}
 	}
 	return lo;
