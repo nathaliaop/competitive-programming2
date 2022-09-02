@@ -1,5 +1,9 @@
+const int MAX = 2e5+17;
+
 int n, l;
 vector<vector<int>> adj;
+// vector<pair<int, int>> adj[MAX];
+// int dist[MAX];
 
 int timer;
 vector<int> tin, tout;
@@ -16,6 +20,13 @@ void dfs(int v, int p)
         if (u != p)
             dfs(u, v);
     }
+
+    /*for (auto [u, peso] : adj[v]) {
+        if (u != p) {
+            dist[u] = dist[v] + peso;
+            dfs(u, v);
+        }
+    }*/
 
     tout[v] = ++timer;
 }
@@ -39,10 +50,12 @@ int lca(int u, int v)
 }
 
 void preprocess(int root) {
-    tin.resize(n);
-    tout.resize(n);
+    tin.resize(MAX);
+    tout.resize(MAX);
     timer = 0;
-    l = ceil(log2(n));
-    up.assign(n, vector<int>(l + 1));
+    up.assign(MAX, vector<int>(32));
     dfs(root, root);
 }
+
+//distance between a and b
+// dist[a] + dist[b] - 2*dist[lca(a, b)]
