@@ -1,5 +1,6 @@
+const int MAX = 2e5+7;
 const int INF = 1000000000;
-vector<vector<pair<int, int>>> adj;
+vector<vector<pair<int, int>>> adj(MAX);
 
 void dijkstra(int s, vector<int> & d, vector<int> & p) {
     int n = adj.size();
