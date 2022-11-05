@@ -26,3 +26,14 @@ void dijkstra(int s, vector<int> & d, vector<int> & p) {
         }
     }
 }
+
+vector<int> restore_path(int s, int t) {
+    vector<int> path;
+
+    for (int v = t; v != s; v = p[v])
+        path.push_back(v);
+    path.push_back(s);
+
+    reverse(path.begin(), path.end());
+    return path;
+}
