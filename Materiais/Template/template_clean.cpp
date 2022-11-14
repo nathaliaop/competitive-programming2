@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// g++ -std=c++20 main.cpp
-
-// g++ -std=c++17 -Wshadow -Wall -Wextra -Wformat=2 -Wconversion -fsanitize=address,undefined -fno-sanitize-recover -Wfatal-errors
+// g++ teste.cpp -o teste -std=c++17
+// ./teste < teste.txt
 
 // cout << fixed << setprecision(12) << value << endl;
 
