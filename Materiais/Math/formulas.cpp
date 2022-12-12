@@ -1,3 +1,10 @@
+#define lcm(a,b) (a*b)/gcd(a,b)
+
+int gcd(int a, int b) {
+ if (b == 0) return a;
+ return gcd(b, a % b);
+}
+
 // number of elements
 long long sum_of_n_first_squares(int n) {
  return (n * (n - 1) * (2 * n - 1)) / 6;
