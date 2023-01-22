@@ -40,3 +40,28 @@ long long general_term_pg(int a1, int n, int q) {
 long long sum_second_order_pa(int a1, int b1, int n, int r) {
  return a1 * n + (b1 * n * (n - 1)) / 2 + (r * n * (n - 1) * (n - 2)) / 6
 }
+
+// GEOMETRIA
+// seno
+a / sen(a) = b / sen(b) = c / sen(c)
+
+//cosseno
+a^2 = b^2 + c^2 - 2*b*c*cos(a)
+
+// area losango
+A = (1/2) * diagonal_maior * diagonal_menor
+
+// volume prisma
+V = B * H
+
+//volume esfera
+V = (4/3) * PI * R^3
+
+//volume piramide
+V = (1/3) * B * H
+
+//volume cone
+V = (1/3) * PI * R^2 * H
+
+//condicao de existencia
+ a - b | < c < a + b

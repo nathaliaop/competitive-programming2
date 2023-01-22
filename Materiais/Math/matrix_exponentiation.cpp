@@ -10,16 +10,9 @@ using pii = pair<int,int>;
 using vi = vector<int>;
 
 using tii = tuple<int,int,int>;
-// auto [a,b,c] = ...
-// .insert({a,b,c})
 
-const int oo = (int)1e9; //INF to INT
-const ll OO = 0x3f3f3f3f3f3f3f3fLL; //INF to LL
-
-/*wa? coloca long long que passa;
-testar casos, n = 0? n = 1? todos os numeros iguais?
-Uma resposta ótima pode ter tamanho 2?
-RELER O ENUNCIADO!*/
+const int oo = (int)1e9;
+const ll OO = 0x3f3f3f3f3f3f3f3fLL;
 
 const int MOD = 1e9+7;
  
@@ -34,7 +27,6 @@ struct Mat{
     }
     
     Mat(int r, int col, bool identidade=false){ 
-        //qnt linhas, qnt colunas, identidade
         l = r;  c = col;
         matriz.assign(l, vector<ll>(col, 0));
         if(identidade){
@@ -44,9 +36,9 @@ struct Mat{
     }
  
     Mat operator * (const Mat& a) const{
-        assert(c == a.l); //qnt lcolunas mat deve ser igual qnt linhas a
+        assert(c == a.l);
         vector<vector<ll>> resp(l, vector<ll>(a.c, 0));
-        //multiplica. Algoritmo cúbico.
+
         for(int i = 0; i < l; i++){
             for(int j = 0; j < a.c; j++){
                 for(int k = 0; k < a.l; k++){
@@ -58,7 +50,7 @@ struct Mat{
     }
  
     Mat operator + (const Mat& a) const{
-        assert(l == a.l && c == a.c); //dimensoes iguais
+        assert(l == a.l && c == a.c); 
         vector<vector<ll>> resp(l, vector<ll>(c,0));
         for(int i = 0; i < l; i++){
             for(int j = 0; j < c; j++){
@@ -88,23 +80,6 @@ int main() {
 
     Mat X(2,2);
     
-    //f_i = c1 * f_(i-1) + c2 * f(i-2) + ... + ck * f(i-k)
-    // monta a matriz X
-    //  A 2° diagonal (todas as posições acima dos elementos q pertecem a diagonal principal) = 1
-    //  A ultima linha é composta por c_k, c_(k-1), c_(k-2), .... , c_2, c_1
-    //Para se ter o p-ésimo elemento é só fazer X^(P-1) pq indexa em 0
-    //e multiplicar pela matriz coluna, onde os elementos são: [f(0)
-    /*                                                          f(1)
-                                                                f(2)
-                                                                ....
-                                                                f(k-1)
-                                                                ]
-    */
-
-    //nessa questão a gente tem que f_i = f_(i-1) - f(i-2), sendo que f_0 = a e f_1 = b, a matriz fica
-    
-    // 0 1
-    //-1 1
     X.matriz[0][1] = 1;
     X.matriz[1][0] = -1;
     X.matriz[1][1] = 1;
